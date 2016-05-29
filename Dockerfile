@@ -2,10 +2,10 @@ FROM centos:7
 
 RUN yum -y install epel-release git asciidoc rpm-build python2-devel make which python-setuptools && yum clean expire-cache && \
     cd /usr/src && \
-    git clone --depth=1 --branch v2.1.0.0-0.3.rc3 git://github.com/ansible/ansible.git --recursive && \
+    git clone --depth=1 --branch v2.1.0.0-1 git://github.com/ansible/ansible.git --recursive && \
     cd ansible && \
     make rpm && \
-    yum install -y rpm-build/ansible-2.1.0.0-0.git201605181948.036547b.HEAD.el7.centos.noarch.rpm && \
+    yum install -y rpm-build/ansible-2.1.0.0-0.git201605251254.b599477.HEAD.el7.centos.noarch.rpm && \
     cd .. && rm -R ansible && yum remove -y asciidoc rpm-build python2-devel make && \
     yum clean all
 
